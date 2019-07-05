@@ -1,17 +1,17 @@
 import Http_Client from '../../services/http_client';
 
-export function loadMoviesSuccess(payload) {
+export function loadMovieSuccess(payload) {
     return {
-        type: 'LOAD_MOVIES',
+        type: 'LOAD_MOVIE',
         payload: payload
     }
 }
 
-export function loadPopularMovies(page=1) {
+export function loadMovie(movie_id) {
     return function(dispatch) {
-        return Http_Client.get('/movie/popular?api_key=' + process.env.REACT_APP_API_KEY + '&page=' + page)
+        return Http_Client.get(`/movie/${movie_id}?api_key=${process.env.REACT_APP_API_KEY}`)
             .then(function(response) {
-                dispatch(loadMoviesSuccess(response.data.results));
+                dispatch(loadMovieSuccess(response.data.results));
             });
     }
 }
@@ -20,11 +20,12 @@ let movies = function(state={}, action) {
     let new_state;
 
     switch(action.type) {
-        case 'LOAD_MOVIES':
-            new_state = {};
-            action.payload.map((movie) => new_state[movie.id] = movie);
-
-            return new_state;
+        case 'LOAD_MOVIE':
+        console.log(action.payload);
+            return {
+                ...state,
+                ...action.payload
+            };
         default:
             return state;
     }

@@ -1,9 +1,18 @@
 import React                    from 'react';
+import { withRouter }           from 'react-router-dom';
 import { connect }              from 'react-redux';
 import {Container, Row, Col}    from 'react-bootstrap';
 import { AppBar }               from 'material-ui';
 import { loadPopularMovies }    from '../../redux/reducers/popularMovies';
 import MovieCard                from '../../components/movie-card';
+import Loader                   from '../../components/loader';
+
+
+const styles = {
+    movieColumn: {
+      marginBottom: 20
+    }
+}
 
 class Page_Movie extends React.Component {
     constructor(props) {
@@ -24,32 +33,30 @@ class Page_Movie extends React.Component {
             });
     }
 
+    onClick = (movie_id) => {
+        let path = `/movie/${movie_id}`
+        this.props.history.push(path);
+    }
+
     render() {
         let movies = [];
 
-        if (this.props.movies) {
-            for (let key in this.props.movies[this.state.page]) {
-                let movie = this.props.movies[this.state.page][key];
-                console.log(movie.poster_path);
-                movies.push(<MovieCard key={movie.id} img={movie.poster_path} />);
-            }
-
-            /*console.log(this.props.movies);
-            this.props.movies.map((movie) => console.log(movie));
-            this.props.movies.map((movie) => movies.push(<MovieCard key={movie.id} img={movie.poster_path} />));*/
-        }
-
-        console.log(movies);
+        let movieColumns = this.props.movies[this.state.page] ? this.props.movies[this.state.page].map(movie => (
+            <Col style={styles.movieColumn} key={movie.id} xs={12} sm={6} md={6} lg={3}>
+              <MovieCard key={movie.id} id={movie.id} img={movie.poster_path} title={movie.title} date={movie.release_date} score={movie.vote_average} onClick={this.onClick} />
+            </Col>
+          )) : null;
 
         return(
             <div>
                 <AppBar title="Movies" />
                 <Container>
                     <Row>
-                        <p>TODO: Search bar</p>
+                        <p>TODO: Search bars</p>
                     </Row>
                     <Row>
-                        {movies}
+                        <Loader loading={this.state.loading} />
+                        {movieColumns}
                     </Row>
                 </Container>
             </div>
@@ -69,49 +76,4 @@ const mapDispatchToProps = function(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Page_Movie);
-
-// import { withRouter }   from 'react-router';
-// import { connect }      from 'react-redux';
-// import { loadPopularMovies }   from '../../redux/reducers/movies';
-
-
-// class Page_Movie extends React.Component {
-//     constructor(props) {
-//         super(props);
-//     }
-
-//     componentDidMount() {
-//         this.props.loadPopularMovies();
-//     }
-
-//     render() {
-//         console.log(this.props.movies);
-
-//         let movies = [];
-
-//         for (let key in this.props.movies) {
-//             movies.push(<li>{this.props.movies[key].title}</li>);
-//         }
-
-//         return(
-//             <div>
-//                 {movies}
-//             </div>
-//         );
-//     }
-// }
-
-// const mapStateToProps = function(state) {
-//     return {
-//         movies: state.movies
-//     };
-// };
-
-// const mapDispatchToProps = function(dispatch) {
-//     return {
-//         loadPopularMovies: (page) => dispatch(loadPopularMovies(page))
-//     };
-// }
-
-// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Page_Movie));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Page_Movie));
