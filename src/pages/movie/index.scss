@@ -10,7 +10,7 @@
 }
 
 .input-group {
-    margin: 20px;
+    padding: 20px;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -33,7 +33,7 @@
 
     .input-group-btn {
         position: absolute;
-        right: 0;
+        right: 20px;
 
         button {
             background: none;

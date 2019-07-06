@@ -1,5 +1,6 @@
-import React                            from 'react';
-import propTypes                        from 'prop-types';
+import React        from 'react';
+import propTypes    from 'prop-types';
+import classNames   from 'classnames';
 
 import { Card, CardMedia }   from 'material-ui';
 import './movie-card.scss';
@@ -28,10 +29,16 @@ class MovieCard extends React.Component {
     render() {
         let votePercentage = Number(this.props.score/10).toLocaleString(undefined,{style: 'percent'});
 
+        let scoreClass = classNames({
+            good: this.props.score >= 7,
+            average: this.props.score < 7 && this.props.score > 3,
+            bad: this.props.score < 3
+        });
+
         return(
             <React.Fragment>
                 <Card style={styles.card} onClick={this.onClick}>
-                    <div className="score">{votePercentage}</div>
+                    <div className={scoreClass + " score"}>{votePercentage}</div>
                     <CardMedia style={styles.cardMedia}>
                         <img alt="" src={`https://image.tmdb.org/t/p/original/${this.props.img}`} />
                     </CardMedia>
