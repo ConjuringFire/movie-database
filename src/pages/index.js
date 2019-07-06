@@ -14,8 +14,9 @@ class Page_Container extends React.Component {
         return(
             <div id="main">
                 <Switch>
-                    <Route exact path='/'       component={Page_Movie} />
-                    <Route path='/movie/:id'    component={Page_MovieDetails} />
+                    <Route exact path='/'           component={Page_Movie} />
+                    <Route path='/movie/:id'        component={Page_MovieDetails} />
+                    <Route path='/search/:search'   component={Page_Movie} />
                     <Route component={Page_404} />
                 </Switch>
             </div>

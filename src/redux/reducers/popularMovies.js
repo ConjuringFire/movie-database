@@ -10,16 +10,14 @@ export function loadPopularMoviesSuccess(payload) {
 export function loadPopularMovies(page) {
     return function(dispatch) {
         return Http_Client.get(`/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`)
-        .then(function(response) {
-            dispatch(loadPopularMoviesSuccess(response.data));
-        });
+            .then(function(response) {
+                dispatch(loadPopularMoviesSuccess(response.data));
+            });
     }
 }
 
 let popularMovies = function(state={}, action) {
     let new_state;
-
-    console.log(action);
 
     switch(action.type) {
         case 'LOAD_POPUAR_MOVIES':

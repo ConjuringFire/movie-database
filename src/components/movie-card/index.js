@@ -2,6 +2,7 @@ import React                            from 'react';
 import propTypes                        from 'prop-types';
 
 import { Card, CardMedia }   from 'material-ui';
+import './movie-card.scss';
 
 const styles = {
     cardMedia: {
@@ -25,17 +26,19 @@ class MovieCard extends React.Component {
     }
 
     render() {
+        let votePercentage = Number(this.props.score/10).toLocaleString(undefined,{style: 'percent'});
+
         return(
             <React.Fragment>
                 <Card style={styles.card} onClick={this.onClick}>
-                    <div>{this.props.score}</div>
+                    <div className="score">{votePercentage}</div>
                     <CardMedia style={styles.cardMedia}>
                         <img alt="" src={`https://image.tmdb.org/t/p/original/${this.props.img}`} />
                     </CardMedia>
                 </Card>
                 <div>
-                    {this.props.title}
-                    {this.props.date}
+                    <div className="title-text">{this.props.title}</div>
+                    <div className="title-date">{this.props.date}</div>
                 </div>
             </React.Fragment>
         );

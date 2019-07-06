@@ -11,7 +11,7 @@ export function loadMovie(movie_id) {
     return function(dispatch) {
         return Http_Client.get(`/movie/${movie_id}?api_key=${process.env.REACT_APP_API_KEY}`)
             .then(function(response) {
-                dispatch(loadMovieSuccess(response.data.results));
+                dispatch(loadMovieSuccess(response.data));
             });
     }
 }
@@ -21,10 +21,12 @@ let movies = function(state={}, action) {
 
     switch(action.type) {
         case 'LOAD_MOVIE':
-        console.log(action.payload);
+            new_state = {};
+            new_state[action.payload.id] = action.payload;
+        
             return {
                 ...state,
-                ...action.payload
+                ...new_state
             };
         default:
             return state;
