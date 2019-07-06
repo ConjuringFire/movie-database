@@ -1,7 +1,6 @@
 .score {
     position: absolute;
     z-index: 2;
-    background-color: #06d176;
     font-size: 0.7em;
     color: #fff;
     font-weight: bold;
@@ -9,6 +8,18 @@
     border-radius: 10px;
     top: 10px;
     left: 10px;
+
+    &.good {
+        background-color: #06d176;
+    }
+
+    &.average {
+        background-color: #4a09a2;
+    }
+
+    &.bad {
+        background-color: #d0275b;
+    }
 }
 
 .title-text {

@@ -8,10 +8,8 @@ import MovieCard                from '../../components/movie-card';
 import Loader                   from '../../components/loader';
 import * as scrollHelpers       from '../../helpers/scroll';
 
-import IconButton from "@material-ui/core/IconButton";
-import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
-import TextField from "@material-ui/core/Textfield";
+
 import './index.scss';
 
 const styles = {
