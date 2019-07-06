@@ -1,0 +1,47 @@
+.category-title {
+    h2 {
+        color: #FFFFFF;
+        width: 100%;
+        display: inline-block;
+        z-index: 0;
+        font-size: 1.2em;
+        padding: 20px;
+    }
+}
+
+.input-group {
+    margin: 20px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+
+    input.search-bar {
+        color: #06d176;
+        font-size: 0.9em;
+        width: 100%;
+        padding: 10px 20px;
+        border-radius: 20px;
+        border: none;
+    }
+
+    ::-webkit-input-placeholder {
+        color: #06d176;
+    }
+
+    .input-group-btn {
+        position: absolute;
+        right: 0;
+
+        button {
+            background: none;
+            height: 25px;
+
+            svg {
+                fill: #06d176;
+            }
+        }
+    }
+}

@@ -1,0 +1,99 @@
+.poster {
+    float: none;
+    display: block;
+    margin: 0 auto;
+    width: 100vw;
+    height: 50vw;
+    z-index: 1;
+    position: relative;
+    top: 0;
+    overflow: visible;
+
+    .image-content {
+        width: 100%;
+        height: 100%;
+        position: static;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    img.backdrop {
+        position: relative;
+        top: -3vw;
+        width: 100vw;
+        height: 56vw;
+        border-radius: 0;
+    }
+
+    div.poster-holder {
+        position: absolute;
+        border-radius: 5px;
+        bottom: -30vw;
+        height: 39vw;
+        left: 20px;
+        overflow: hidden;
+
+        img.poster {
+            width: 26vw;
+            height: 39vw;
+            z-index: 4;
+        }
+    }
+}
+
+.movie-title {
+    min-height: auto;
+    display: flex;
+
+    .title {
+        box-sizing: border-box;
+        position: relative;
+        top: 0;
+        left: 0;
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        padding: 0 20px;
+        z-index: 4;
+        min-height: calc(19vw + 20px);
+
+        h2 {
+            width: 100%;
+            display: inline-block;
+            z-index: 0;
+            font-size: calc(0.7em + 2vw);
+            padding-top: 20px;
+            padding-left: calc(26vw + 20px);
+        }
+        
+        span {
+            color: #9ebac6;
+            font-size: calc(0.5em + 1vw);
+            padding-left: calc(26vw + 20px);
+        }
+    }
+}
+
+.movie-details {
+    padding: 0 20px;
+    width: 100%;
+
+    h3 {
+        color: #FFFFFF;
+        width: 100%;
+        border-top: 1px solid #16333f;
+        margin: 20px 0 8px 0;
+        font-weight: 600;
+        line-height: 1.3em;
+        font-size: 1.3em;
+        padding-top: 10px;
+    }
+
+    .overview {
+        color: #9ebac6;
+        font-size: 1em;
+        line-height: 1.4em;  
+    }
+}
