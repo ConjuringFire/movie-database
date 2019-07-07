@@ -3,7 +3,7 @@ import React from 'react';
 class Page_404 extends React.Component {
     render() {
         return(
-            <div>Cong</div>
+            <div>404: We couldn't find the page you were looking for</div>
         );
     };
 }

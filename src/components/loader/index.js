@@ -1,6 +1,6 @@
-import React from 'react';
-import propTypes from 'prop-types';
-import _ from 'lodash';
+import React                from 'react';
+import propTypes            from 'prop-types';
+import _                    from 'lodash';
 import { RefreshIndicator } from 'material-ui';
 
 const styles = {

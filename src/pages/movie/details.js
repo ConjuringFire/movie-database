@@ -1,14 +1,13 @@
-import React            from 'react';
-import { withRouter }   from 'react-router-dom';
-import { connect }      from 'react-redux';
-import { loadMovie }    from '../../redux/reducers/movies';
-import Loader                   from '../../components/loader';
-import { Container }   from 'material-ui';
-import KeyboardBackspace from "@material-ui/icons/KeyboardBackspace";
+import React                from 'react';
+import { withRouter }       from 'react-router-dom';
+import { connect }          from 'react-redux';
+import { loadMovie }        from '../../redux/reducers/movies';
+import Loader               from '../../components/loader';
+import KeyboardBackspace    from "@material-ui/icons/KeyboardBackspace";
 
 import './details.scss';
 
-class Page_MovieDetails extends React.Component {
+class PageMovieDetails extends React.Component {
     constructor(props) {
         super(props);
 
@@ -99,4 +98,4 @@ const mapDispatchToProps = function(dispatch) {
     };
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Page_MovieDetails));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PageMovieDetails));
