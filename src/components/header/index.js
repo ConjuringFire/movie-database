@@ -46,9 +46,9 @@ class Header extends React.Component {
                 <Media query="(max-width: 599px)">
                     {matches =>
                     matches ? (
-                        <img className="banner" alt="The Movie Database" src={process.env.PUBLIC_URL + "/img/tmdb-logo.png"} />
+                        <a href="/"><img className="banner" alt="The Movie Database" src={process.env.PUBLIC_URL + "/img/tmdb-logo.png"} /></a>
                     ) : (
-                        <img className="main-banner" alt="The Movie Database" src={process.env.PUBLIC_URL + "/img/tmdb-small.svg"} />
+                        <a href="/"><img className="main-banner" alt="The Movie Database" src={process.env.PUBLIC_URL + "/img/tmdb-small.svg"} /></a>
                     )}
                 </Media>
                 </Row>
