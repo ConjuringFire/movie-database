@@ -1,8 +1,8 @@
-import React from 'react';
+import React                    from 'react';
 import { withRouter }           from 'react-router-dom';
-import { Container, Row, Col }  from 'react-bootstrap';
-import SearchIcon from "@material-ui/icons/Search";
-import Media from 'react-media';
+import { Container, Row }  from 'react-bootstrap';
+import SearchIcon               from "@material-ui/icons/Search";
+import Media                    from 'react-media';
 
 import './index.scss';
 
@@ -20,7 +20,7 @@ class Header extends React.Component {
             [e.target.name]: e.target.value
         });
 
-        if (e.keyCode == 13) {
+        if (e.keyCode === 13) {
             this.search();
         } 
     }
@@ -40,16 +40,15 @@ class Header extends React.Component {
     }
 
     render() {
-
-return(
+        return(
             <Container>
                 <Row>
                 <Media query="(max-width: 599px)">
                     {matches =>
                     matches ? (
-                        <img className="banner" src={process.env.PUBLIC_URL + "/img/tmdb-logo.png"} />
+                        <img className="banner" alt="The Movie Database" src={process.env.PUBLIC_URL + "/img/tmdb-logo.png"} />
                     ) : (
-                        <img className="main-banner" src={process.env.PUBLIC_URL + "/img/tmdb-small.svg"} />
+                        <img className="main-banner" alt="The Movie Database" src={process.env.PUBLIC_URL + "/img/tmdb-small.svg"} />
                     )}
                 </Media>
                 </Row>

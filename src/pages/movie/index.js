@@ -9,8 +9,6 @@ import MovieCard                from '../../components/movie-card';
 import Loader                   from '../../components/loader';
 import * as scrollHelpers       from '../../helpers/scroll';
 
-import SearchIcon from "@material-ui/icons/Search";
-
 import './index.scss';
 
 const styles = {
@@ -19,7 +17,7 @@ const styles = {
     }
 }
 
-class Page_Movie extends React.Component {
+class PageMovie extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -35,7 +33,7 @@ class Page_Movie extends React.Component {
     componentDidMount() {
         window.onscroll = this.handleScroll;
 
-        if (this.state.type == 'search') {
+        if (this.state.type === 'search') {
             this.props.searchMovie(this.state.search, this.state.page)
             .then(() => {
                 this.setState({
@@ -123,4 +121,4 @@ const mapDispatchToProps = function(dispatch) {
     };
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Page_Movie));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PageMovie));
