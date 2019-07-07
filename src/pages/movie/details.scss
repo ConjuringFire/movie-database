@@ -3,11 +3,26 @@
     display: block;
     margin: 0 auto;
     width: 100vw;
-    height: 50vw;
     z-index: 1;
     position: relative;
     top: 0;
     overflow: visible;
+
+    .back-link {
+        color: #FFFFFF;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        overflow: hidden;
+        z-index: 5;
+        width: 4vw;
+
+        svg {
+            font-size: 6vw;
+            cursor: pointer;
+            filter: drop-shadow(1px 2px 1px hsla(0, 0%, 0%, 0.3));
+        }
+    }
 
     .image-content {
         width: 100%;
@@ -28,7 +43,7 @@
     div.poster-holder {
         position: absolute;
         border-radius: 5px;
-        bottom: -30vw;
+        bottom: 0;
         height: 39vw;
         left: 20px;
         overflow: hidden;
@@ -39,39 +54,39 @@
             z-index: 4;
         }
     }
-}
 
-.movie-title {
-    min-height: auto;
-    display: flex;
-
-    .title {
-        box-sizing: border-box;
-        position: relative;
-        top: 0;
-        left: 0;
-        color: #FFFFFF;
+    .movie-title {
+        min-height: auto;
         display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        box-sizing: border-box;
-        padding: 0 20px;
-        z-index: 4;
-        min-height: calc(19vw + 20px);
 
-        h2 {
-            width: 100%;
-            display: inline-block;
-            z-index: 0;
-            font-size: calc(0.7em + 2vw);
-            padding-top: 20px;
-            padding-left: calc(26vw + 20px);
-        }
-        
-        span {
-            color: #9ebac6;
-            font-size: calc(0.5em + 1vw);
-            padding-left: calc(26vw + 20px);
+        .title {
+            box-sizing: border-box;
+            position: relative;
+            top: 0;
+            left: 0;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            padding: 0 20px;
+            z-index: 4;
+            min-height: calc(19vw + 20px);
+
+            h2 {
+                width: 100%;
+                display: inline-block;
+                z-index: 0;
+                font-size: calc(0.7em + 2vw);
+                padding-top: 20px;
+                padding-left: calc(26vw + 20px);
+            }
+            
+            span {
+                color: #9ebac6;
+                font-size: calc(0.5em + 1vw);
+                padding-left: calc(26vw + 20px);
+            }
         }
     }
 }

@@ -1,0 +1,45 @@
+img.banner {
+    height: 45vw;
+    width: 100vw;
+}
+
+img.main-banner {
+    margin: 10px 0px 20px 20px;
+}
+
+.input-group {
+    padding: 0 20px 20px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+
+    input.search-bar {
+        color: #06d176;
+        font-size: 0.9em;
+        width: 100%;
+        padding: 10px 20px;
+        border-radius: 20px;
+        border: none;
+    }
+
+    ::-webkit-input-placeholder {
+        color: #06d176;
+    }
+
+    .input-group-btn {
+        position: absolute;
+        right: 20px;
+
+        button {
+            background: none;
+            height: 25px;
+
+            svg {
+                fill: #06d176;
+            }
+        }
+    }
+}

@@ -4,6 +4,7 @@ import { connect }      from 'react-redux';
 import { loadMovie }    from '../../redux/reducers/movies';
 import Loader                   from '../../components/loader';
 import { Container }   from 'material-ui';
+import KeyboardBackspace from "@material-ui/icons/KeyboardBackspace";
 
 import './details.scss';
 
@@ -28,6 +29,11 @@ class Page_MovieDetails extends React.Component {
         }
     }
 
+    onClick = (e) => {
+        e.preventDefault();
+        this.props.history.goBack();
+    }
+
     render() {
         let moviePage;
         
@@ -42,20 +48,21 @@ class Page_MovieDetails extends React.Component {
                 <section>
                     <div>
                         <div className="poster">
+                            <a href="#" className="back-link" onClick={this.onClick}><KeyboardBackspace /></a>
                             <div className="image-content">
                                 <img className="backdrop" alt="" src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} />
                                 <div className="poster-holder">
                                     <img className="poster" alt="" src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} />
                                 </div>
-                            </div>
-                        </div>    
-                        <div className="movie-title">
-                            <div className="title">
-                                <h2>{movie.title}</h2>
-                                <span>
-                                    {year} - {votePercentage} User score<br />
-                                    {runtimeHours}h {runtimeMinutes} min
-                                </span>
+                            </div>    
+                            <div className="movie-title">
+                                <div className="title">
+                                    <h2>{movie.title}</h2>
+                                    <span>
+                                        {year} - {votePercentage} User score<br />
+                                        {runtimeHours}h {runtimeMinutes} min
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
