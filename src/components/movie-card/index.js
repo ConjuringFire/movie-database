@@ -1,8 +1,9 @@
-import React        from 'react';
-import propTypes    from 'prop-types';
-import classNames   from 'classnames';
+import React                from 'react';
+import propTypes            from 'prop-types';
+import classNames           from 'classnames';
+import moment               from 'moment';
+import { Card, CardMedia }  from 'material-ui';
 
-import { Card, CardMedia }   from 'material-ui';
 import './movie-card.scss';
 
 const styles = {
@@ -13,7 +14,9 @@ const styles = {
     card: {
         cursor: 'pointer',
         overflow: 'hidden',
-        position: 'relative'
+        position: 'relative',
+        backgroundColor: 'transparent',
+        borderRadius: '10px'
     }
   };
 
@@ -28,6 +31,7 @@ class MovieCard extends React.Component {
 
     render() {
         let votePercentage = Number(this.props.score/10).toLocaleString(undefined,{style: 'percent'});
+        let date = moment(this.props.date, 'YYYY-MM-DD').format('MMMM YYYY');
 
         let scoreClass = classNames({
             good: this.props.score >= 7,
@@ -45,7 +49,7 @@ class MovieCard extends React.Component {
                 </Card>
                 <div>
                     <div className="title-text">{this.props.title}</div>
-                    <div className="title-date">{this.props.date}</div>
+                    <div className="title-date">{date}</div>
                 </div>
             </React.Fragment>
         );

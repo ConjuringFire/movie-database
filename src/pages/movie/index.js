@@ -4,6 +4,7 @@ import { connect }              from 'react-redux';
 import { Container, Row, Col }  from 'react-bootstrap';
 import { loadPopularMovies }    from '../../redux/reducers/popularMovies';
 import { searchMovie }          from '../../redux/reducers/search';
+import Header                   from '../../components/header';
 import MovieCard                from '../../components/movie-card';
 import Loader                   from '../../components/loader';
 import * as scrollHelpers       from '../../helpers/scroll';
@@ -70,28 +71,9 @@ class Page_Movie extends React.Component {
         }
     }
 
-    keyPress = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
-
-        if (e.keyCode == 13) {
-            this.search();
-        } 
-    }
-
     onClick = (movie_id) => {
         let path = `/movie/${movie_id}`
         this.props.history.push(path);
-    }
-
-    search() {
-        let path = `/search/${this.state.search}`
-        this.props.history.push(path); 
-    }
-
-    submitSearch = () => {
-        this.search();
     }
 
     render() {
@@ -111,18 +93,8 @@ class Page_Movie extends React.Component {
 
         return(
             <div>
-                <img src="%PUBLIC_URL%/img/tmdb-logo.png" />
+                <Header />
                 <Container>
-                    <Row>
-                        <div className="input-group">
-                            <input type="text" className="search-bar" placeholder="Search" name="search" defaultValue={this.state.search}  onKeyUp={this.keyPress} />
-                            <div className="input-group-btn">
-                                <button type="button" className="btn btn-default" onClick={this.submitSearch}>
-                                    <SearchIcon />
-                                </button>
-                            </div>
-                        </div>
-                    </Row>
                     <Row className="category-title">
                         <h2>{title}</h2>
                     </Row>
