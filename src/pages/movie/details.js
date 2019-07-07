@@ -79,7 +79,9 @@ class Page_MovieDetails extends React.Component {
         return (
             <section>
                 {moviePage}                    
-                <Loader loading={this.state.loading} />
+                <div className="loader-holder">             
+                    <Loader loading={this.state.loading} />
+                </div>
             </section>
         );
     }
